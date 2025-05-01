@@ -17,17 +17,29 @@ func main() {
 // printFunctions prints a table containing function names and their domains.
 func printFunctions(funcs []functions.Function) {
 	const COLUMN_SIZE = 20
+	const NUMBER_COLUMN_SIZE = 3
 
-	format := fmt.Sprintf("|%% %vv|%% %vv|\n", COLUMN_SIZE, COLUMN_SIZE)
-	divider := strings.Repeat("-", COLUMN_SIZE)
+	// e.g. "|% 3v|% 20v|% 20v|\n"
+	format := fmt.Sprintf(
+		"|%% %vv|%% %vv|%% %vv|\n",
+		NUMBER_COLUMN_SIZE,
+		COLUMN_SIZE,
+		COLUMN_SIZE,
+	)
+	divider_string := fmt.Sprintf(
+		format,
+		strings.Repeat("-", NUMBER_COLUMN_SIZE),
+		strings.Repeat("-", COLUMN_SIZE),
+		strings.Repeat("-", COLUMN_SIZE),
+	)	
 
-	fmt.Printf(format, divider, divider)
-	fmt.Printf(format, "Name", "Domain")
-	fmt.Printf(format, divider, divider)
+	fmt.Print(divider_string)
+	fmt.Printf(format, "#", "Name", "Domain")
+	fmt.Print(divider_string)
 
-	for _, f := range funcs {
-		fmt.Printf(format, f.Name, f.Domain)
+	for n, f := range funcs {
+		fmt.Printf(format, n, f.Name, f.Domain)
 	}
 
-	fmt.Printf(format, divider, divider)
+	fmt.Print(divider_string)
 }
