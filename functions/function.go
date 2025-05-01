@@ -10,3 +10,7 @@ type Function struct {
 	Domain string
 	Evaluate Evaluator
 }
+
+func (f Function) String() string {
+	return f.Name
+}
