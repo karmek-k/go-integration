@@ -2,6 +2,7 @@ package functions
 
 import "math"
 
+// GetDefault provides functions available by default.
 func GetDefault() []Function {
 	return []Function{
 		{
@@ -22,6 +23,7 @@ func GetDefault() []Function {
 	}
 }
 
+// quadratic represents a certain quadraticc Function's Evaluator.
 func quadratic(x float64) float64 {
 	const A float64 = 0.5
 	const B float64 = 7.0
