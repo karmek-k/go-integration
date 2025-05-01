@@ -5,13 +5,34 @@ import (
 	"strings"
 
 	"github.com/karmek-k/go-integration/functions"
+	"github.com/karmek-k/go-integration/integration"
 )
 
 func main() {
 	fmt.Println("~~~ Numerical Integration ~~~")
 
+	// TODO: make usable by the user
+	execute()
+}
+
+func execute() {
 	fmt.Println("Available functions:")
-	printFunctions(functions.GetDefault())
+
+	funcs := functions.GetDefault()
+	printFunctions(funcs)
+
+	f := funcs[2]
+	fmt.Printf("Selected function:\t%v\n", f)
+
+	a := 0.0
+	b := 4.0
+
+	fmt.Printf("Integration interval:\t[%v; %v]\n", a, b)
+
+	integral := integration.TrapezoidalIntegral{Function: f, Cuts: 5000}
+
+	result := integral.Calculate(a, b)
+	fmt.Printf("Result:\n%.8v\n", result)
 }
 
 // printFunctions prints a table containing function names and their domains.
