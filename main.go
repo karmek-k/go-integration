@@ -18,7 +18,7 @@ func main() {
 func execute() {
 	fmt.Println("Available functions:")
 
-	funcs := functions.GetDefault()
+	funcs := functions.Default()
 	printFunctions(funcs)
 
 	f := funcs[2]

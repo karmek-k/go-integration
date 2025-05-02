@@ -2,8 +2,8 @@ package functions
 
 import "math"
 
-// GetDefault provides functions available by default.
-func GetDefault() []Function {
+// Default provides functions available by default.
+func Default() []Function {
 	return []Function{
 		{
 			Name:     "sin(x)",
