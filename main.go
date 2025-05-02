@@ -52,7 +52,7 @@ func printFunctions(funcs []functions.Function) {
 		strings.Repeat("-", NUMBER_COLUMN_SIZE),
 		strings.Repeat("-", COLUMN_SIZE),
 		strings.Repeat("-", COLUMN_SIZE),
-	)	
+	)
 
 	fmt.Print(divider_string)
 	fmt.Printf(format, "#", "Name", "Domain")
